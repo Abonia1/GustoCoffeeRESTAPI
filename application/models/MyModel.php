@@ -93,7 +93,7 @@ class MyModel extends CI_Model {
 
     public function reservation_create_data($data)
     {
-        $this->db->where('c_id',$client)
+        
         $this->db->insert('reservation',$data);
         return array('status' => 201,'message' => 'Data has been created.');
     }
