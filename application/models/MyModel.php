@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MyModel extends CI_Model {
 
     var $client_service = "frontend-client";
-    var $auth_key       = "simplerestapi";
+    var $auth_key       = "gustorestapi";
 
     public function check_auth_client(){
         $client_service = $this->input->get_request_header('Client-Service', TRUE);
@@ -77,6 +77,7 @@ class MyModel extends CI_Model {
         }
     }
 
+    
     public function reservation_all_data()
     {
         return $this->db->select('reservation_id,date,time')->from('reservation')->order_by('reservation_id','desc')->get()->result();
