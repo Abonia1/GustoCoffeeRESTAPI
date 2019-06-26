@@ -19,7 +19,7 @@ class MyModel extends CI_Model {
 
     public function login($username,$password)
     {
-        $q  = $this->db->select('mot_de_passe,id')->from('client')->where('email',$username)->get()->row();
+        $q  = $this->db->select('mot_de_passe,id')->from('client')->where('client',$username)->get()->row();
        
         if($q == ""){
             return array('status' => 204,'message' => 'Username not found.');
@@ -76,7 +76,10 @@ class MyModel extends CI_Model {
             }
         }
     }
-
+    // public function reservation_all_data()
+    //  {
+    //      return $this->db->select('reservation_id,date,time,c_id')->from('reservation')->where('c_id',$id)->order_by('reservation_id','desc')->get()->result();
+    //  }
     
     public function reservation_all_data()
     {
@@ -85,11 +88,12 @@ class MyModel extends CI_Model {
 
     public function reservation_detail_data($id)
     {
-        return $this->db->select('reservation_id,date,time')->from('reservation')->where('reservation_id',$id)->order_by('reservation_id','desc')->get()->row();
+        return $this->db->select('reservation_id,date,time,c_id')->from('reservation')->where('reservation_id',$id)->order_by('reservation_id','desc')->get()->row();
     }
 
     public function reservation_create_data($data)
     {
+        $this->db->where('c_id',$client)
         $this->db->insert('reservation',$data);
         return array('status' => 201,'message' => 'Data has been created.');
     }
