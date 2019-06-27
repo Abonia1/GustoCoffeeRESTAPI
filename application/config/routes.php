@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-
+//client
 $route['auth/login']['post']           = 'auth/login';
 $route['auth/logout']['post']          = 'auth/logout';
 $route['reservation']['get']          	       = 'reservation';
@@ -58,6 +58,15 @@ $route['reservation/detail/(:num)']['get']    = 'reservation/detail/$1';
 $route['reservation/create']['post']   	   = 'reservation/create';
 $route['reservation/update/(:num)']['put']    = 'reservation/update/$1';
 $route['reservation/delete/(:num)']['delete'] = 'reservation/delete/$1';
+
+//admin
+$route['auth/loginadmin']['post']           = 'auth/loginadmin';
+$route['auth/logoutadmin']['post']          = 'auth/logoutadmin';
+$route['reservationadmin']['get']          	       = 'reservationadmin';
+$route['reservationadmin/detail/(:num)']['get']    = 'reservationadmin/detail/$1';
+$route['reservationadmin/create']['post']   	   = 'reservationadmin/create';
+$route['reservationadmin/update/(:num)']['put']    = 'reservationadmin/update/$1';
+$route['reservationadmin/delete/(:num)']['delete'] = 'reservationadmin/delete/$1';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
