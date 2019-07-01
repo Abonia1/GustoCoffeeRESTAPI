@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CodeIgniter Application Test Suite" tests="6" assertions="3" errors="3" failures="0" skipped="0" time="0.107690">
+    <testsuite name="Welcome_test" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\controllers\Welcome_test.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.098559">
+      <testcase name="test_index" class="Welcome_test" classname="Welcome_test" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\controllers\Welcome_test.php" line="13" assertions="1" time="0.084638"/>
+      <testcase name="test_method_404" class="Welcome_test" classname="Welcome_test" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\controllers\Welcome_test.php" line="19" assertions="1" time="0.012956"/>
+      <testcase name="test_APPPATH" class="Welcome_test" classname="Welcome_test" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\controllers\Welcome_test.php" line="25" assertions="1" time="0.000965"/>
+    </testsuite>
+    <testsuite name="BankAccountWithCustomExtensionTest" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php" tests="3" assertions="0" errors="3" failures="0" skipped="0" time="0.009131">
+      <testcase name="testBalanceIsInitiallyZero" class="BankAccountWithCustomExtensionTest" classname="BankAccountWithCustomExtensionTest" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php" line="29" assertions="0" time="0.002830">
+        <error type="Error">BankAccountWithCustomExtensionTest::testBalanceIsInitiallyZero
+Error: Class 'BankAccount' not found
+
+C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php:21
+</error>
+      </testcase>
+      <testcase name="testBalanceCannotBecomeNegative" class="BankAccountWithCustomExtensionTest" classname="BankAccountWithCustomExtensionTest" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php" line="39" assertions="0" time="0.002899">
+        <error type="Error">BankAccountWithCustomExtensionTest::testBalanceCannotBecomeNegative
+Error: Class 'BankAccount' not found
+
+C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php:21
+</error>
+      </testcase>
+      <testcase name="testBalanceCannotBecomeNegative2" class="BankAccountWithCustomExtensionTest" classname="BankAccountWithCustomExtensionTest" file="C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php" line="57" assertions="0" time="0.003402">
+        <error type="Error">BankAccountWithCustomExtensionTest::testBalanceCannotBecomeNegative2
+Error: Class 'BankAccount' not found
+
+C:\wamp\www\GustoCoffeeRESTAPI\application\tests\vendor\phpunit\phpunit\tests\_files\BankAccountTest.test.php:21
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -116,3 +116,5 @@ $db['local'] = array(
     'failover' => array(),
     'save_queries' => TRUE
 );
+
+$this->load->model('model_name', '', $db);
