@@ -1,0 +1,16 @@
+{
+    "name": "apidoc-example",
+    "version": "0.3.0",
+    "description": "apiDoc example project",
+    "title": "Custom apiDoc browser title",
+    "url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/",
+
+    "reservationAdmin": [
+        "Get",
+        "Post"
+    ],
+    "template": {
+        "withCompare": true,
+        "withGenerator": true
+    }
+}

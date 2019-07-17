@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //client
 $route['auth/login']['post']           = 'auth/login';
 $route['auth/logout']['post']          = 'auth/logout';
+$route['docs']['get']        	       = 'docs';
 $route['reservation']['get']          	       = 'reservation';
 $route['reservationadmintest/test_detail']          	       = 'reservationadmintest/test_detail';
 $route['reservation/detail/(:num)']['get']    = 'reservation/detail/$1';

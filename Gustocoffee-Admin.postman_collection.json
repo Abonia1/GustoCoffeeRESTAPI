@@ -1,0 +1,343 @@
+{
+	"id": "1750b473-f3b6-45c1-9fff-77986b9e05d1",
+	"name": "Gustocoffee-Admin",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"e98eb01b-87b3-4a80-9a36-521b1aca13ba",
+		"f9d8f8fb-22c2-4066-bbd1-884dca42a278",
+		"3ff2af42-bd25-4969-b18d-fe9a3321c596",
+		"d276e90c-ad62-4bc4-b9bb-6dc42b86b6c8",
+		"2cd50938-8dc8-452b-a4d5-e890e2a433f2",
+		"246c78d3-58cd-420d-bcc2-bf11fdf52aed"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "246c78d3-58cd-420d-bcc2-bf11fdf52aed",
+			"name": "Logout",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/auth/logout?email=test@gmail.com&mot_de_passe=aboabo",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "email",
+					"value": "test@gmail.com",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "mot_de_passe",
+					"value": "aboabo",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2cd50938-8dc8-452b-a4d5-e890e2a433f2",
+			"name": "Delete Reservation",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/reservation/delete/32",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-ID",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "$1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\nUser-ID: 1\nAuthorization: $1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3ff2af42-bd25-4969-b18d-fe9a3321c596",
+			"name": "Create Reservation",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/reservation/create?date=2019-12-11&time=10:00&quantity=1&tbnumber=1&c_id=1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-ID",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "$1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "date",
+					"value": "2019-12-11",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "time",
+					"value": "10:00",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "quantity",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "tbnumber",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "c_id",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\nUser-ID: 1\nAuthorization: $1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d276e90c-ad62-4bc4-b9bb-6dc42b86b6c8",
+			"name": "Update Reservation",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/reservation/update/32?quantity=2&date=2019-12-11&time=10:00&tbnumber=1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-ID",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "$1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "quantity",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2019-12-11",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "time",
+					"value": "10:00",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "tbnumber",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\nUser-ID: 1\nAuthorization: $1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e98eb01b-87b3-4a80-9a36-521b1aca13ba",
+			"name": "Login",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/auth/login?email=test@gmail.co&mot_de_passe=aboabo",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "email",
+					"value": "test@gmail.co",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "mot_de_passe",
+					"value": "aboabo",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f9d8f8fb-22c2-4066-bbd1-884dca42a278",
+			"name": "Reservation",
+			"url": "http://aboweb.local:8080/gustocoffeerestapi/index.php/reservation",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-client",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "gustorestapi",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-ID",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "$1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Client-Service: frontend-client\nAuth-Key: gustorestapi\nUser-ID: 1\nAuthorization: $1$h75wVSzt$vJ2lIhPpoCCND2cfp/bbh.\n",
+			"pathVariables": {}
+		}
+	]
+}

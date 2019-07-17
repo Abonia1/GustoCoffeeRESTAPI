@@ -69,6 +69,7 @@ class reservation extends CI_Controller {
 						$respStatus = 400;
 						$resp = array('status' => 400,'message' =>  'date,time,quantity,tbnumber can\'t be empty');
 					} else {
+						
 		        		$resp = $this->MyModel->reservation_create_data($params);
 					}
 					json_output($respStatus,$resp);
@@ -91,7 +92,7 @@ class reservation extends CI_Controller {
 					$params = $_REQUEST;
 					//$params = json_decode(file_get_contents('php://input'), TRUE);
 					//$params['updated_at'] = date('Y-m-d H:i:s');
-					if ($params['date'] == "" || $params['time'] == ""||$params['time'] == ""|| $params['tbnumber'] == "") {
+					if ($params['date'] == "" || $params['time'] == ""||$params['quantity'] == ""|| $params['tbnumber'] == "") {
 						$respStatus = 400;
 						$resp = array('status' => 400,'message' =>  'date,time,quantity,tbnumber can\'t be empty');
 					} else {
