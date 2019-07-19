@@ -102,7 +102,7 @@ class Docs extends CI_Controller{
 					$call_type = strtoupper($rest_method_parameter[1]);
 				}
 				else{
-					$call_type = count($api_paramter[1]) ? strtoupper($api_paramter[1][0]) : 'GET';
+					$call_type = count($api_paramter[1]) ? strtoupper($api_paramter[1][0]) : 'POST';
 				}
 
 				array_push($api_list, array(

@@ -4,10 +4,20 @@
         "phpunit/phpunit": "^8.2",
         "kenjis/ci-phpunit-test": "^0.17.0"
     },
+
     "authors": [{
         "name": "Abonia Sojasingarayar",
         "email": "aboniaa@gmail.com"
     }],
-    "require": {}
+    "require": {
+        "name": "example",
+        "version": "0.1.0",
+        "description": "apiDoc basic example",
+        "apidoc": {
+            "title": "Custom apiDoc browser title",
+            "url": "https://api.github.com/v1"
+        }
+    }
+
 
 }

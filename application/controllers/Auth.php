@@ -6,7 +6,6 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		$method = $_SERVER['REQUEST_METHOD'];
-		//$method = 'POST';
 
 		if($method != 'POST'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
@@ -30,7 +29,6 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-	
 		$method = $_SERVER['REQUEST_METHOD'];
 		if($method != 'POST'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
