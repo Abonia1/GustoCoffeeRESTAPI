@@ -1,7 +1,78 @@
 <?php
+use Swagger\Annotations as SWG;
+/**
+ * @package
+ * @category
+ * @subpackage
+ *
+ * @SWG\Resource(
+ *  apiVersion="0.2",
+ *  swaggerVersion="1.2",
+ *  resourcePath="Auth",
+ *  basePath="http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
+ *  produces="['application/json']",
+ * )
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
+		/**
+ *
+ * @SWG\Api(
+ *   path="auth/login",
+ *   description="POST",
+ *     consumes={"application/x-www-form-urlencoded"},
+ *     produces={"text/plain, application/json"},
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="POST",
+ *       summary="login Client",
+ *       notes="Returns a string",
+ *       nickname="LoginClient",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Client-Service",
+ *           description="Client Service",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="email",
+ *           description="user name",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *  *         @SWG\Parameter(
+ *           name="mot_de_passe",
+ *           description="password",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Invalid username"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 //client
 	public function login()
 	{
@@ -22,11 +93,65 @@ class Auth extends CI_Controller {
 		        	
 		        $response = $this->MyModel->login($username,$password);
 				echo $response;
-				json_output($response['status'],$response);
+				return json_output($response['status'],$response);
 			}
 		}
 	}
-
+		/**
+ *
+ * @SWG\Api(
+ *   path="auth/logout",
+ *   description="POST",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="POST",
+ *       summary="Logout Client",
+ *       notes="Returns a string",
+ *       nickname="LogoutClient",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Client-Service",
+ *           description="Client Service",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="email",
+ *           description="user name",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *  *         @SWG\Parameter(
+ *           name="mot_de_passe",
+ *           description="password",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Cant logout"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 	public function logout()
 	{
 		$method = $_SERVER['REQUEST_METHOD'];
@@ -36,12 +161,66 @@ class Auth extends CI_Controller {
 			$check_auth_client = $this->MyModel->check_auth_client();
 			if($check_auth_client == true){
 		        $response = $this->MyModel->logout();
-				json_output($response['status'],$response);
+				return json_output($response['status'],$response);
 			}
 		}
 	}
 	
-
+		/**
+ *
+ * @SWG\Api(
+ *   path="auth/loginadmin",
+ *   description="POST",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="POST",
+ *       summary="Login Admin",
+ *       notes="Returns a string",
+ *       nickname="LoginAdmin",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Admin-Service",
+ *           description="Admin Service",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="identifiant",
+ *           description="user name",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *  *         @SWG\Parameter(
+ *           name="mot_de_passe",
+ *           description="password",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Invalid username"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 	//admin
 	public function loginAdmin()
 	{
@@ -66,6 +245,61 @@ class Auth extends CI_Controller {
 			}
 		}
 	}
+			/**
+ *
+ * @SWG\Api(
+ *   path="auth/logoutadmin",
+ *   description="POST",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="POST",
+ *       summary="Logout Admin",
+ *       notes="Returns a string",
+ *       nickname="LogoutAdmin",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Admin-Service",
+ *           description="Admin Service",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="identifiant",
+ *           description="user name",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *  *         @SWG\Parameter(
+ *           name="mot_de_passe",
+ *           description="password",
+ *           paramType="query",
+ *           required=false,
+ *           type="string"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="cant logout"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 
 	public function logoutAdmin()
 	{

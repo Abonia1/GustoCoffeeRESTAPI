@@ -1,0 +1,109 @@
+{
+    "basePath": "http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.2",
+    "resourcePath": "reservation",
+    "apis": [
+        {
+            "path": "reservation",
+            "description": "GET",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "get reservation",
+                    "nickname": "helloWord",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Client-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Client Service"
+                        },
+                        {
+                            "paramType": "hedaer",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "User-ID",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                },
+                {
+                    "method": "GET",
+                    "summary": "get reservation",
+                    "nickname": "helloWord",
+                    "parameters": [
+                        {
+                            "paramType": "query",
+                            "name": "Client-Service",
+                            "type": "string",
+                            "required": false,
+                            "description": "Client Service"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": false,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "User-ID",
+                            "type": "string",
+                            "required": false,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": false,
+                            "description": "authorization token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json"
+    ]
+}

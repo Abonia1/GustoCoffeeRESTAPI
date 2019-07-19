@@ -1,0 +1,14 @@
+{
+    "apiVersion": "0.2",
+    "swaggerVersion": "1.2",
+    "apis": [
+        {
+            "path": "/Auth.{format}",
+            "description": "POST"
+        },
+        {
+            "path": "/reservation.{format}",
+            "description": "GET"
+        }
+    ]
+}

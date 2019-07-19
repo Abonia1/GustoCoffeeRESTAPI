@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MyModel extends CI_Model {
+     /**
+ * @SWG\Model(id="reservation", required="Client-Service, Auth-Key,User-ID, Authorization",
+ *     @SWG\Property(name="Client-Service",type="String"),
+ *     @SWG\Property(name="Auth-Key",type="String"),
+ *     @SWG\Property(name="User-ID",type="Integer"),
+ *     @SWG\Property(name="Authorization",type="String")
+  * )
+*/
 
     var $client_service = "frontend-client";
     var $auth_key       = "gustorestapi";
@@ -31,6 +39,14 @@ class MyModel extends CI_Model {
             if (hash_equals($hashed_password, crypt($password, $hashed_password))) {
                $last_login = date('Y-m-d H:i:s');
                $token = crypt(substr( md5(rand()), 0, 7));
+            //   $randomIdLength = 10;
+            //    $bytes = random_bytes($randomIdLength);
+            //    $token = str_replace(
+            //        ['.','/','='], 
+            //        '',
+            //        base64_encode($bytes)
+            //    );
+
                $expired_at = date("Y-m-d H:i:s", strtotime('+12 hours'));
                $this->db->trans_start();
                //$this->db->where('id',$id)->update('administrateur',array('last_login' => $last_login));
