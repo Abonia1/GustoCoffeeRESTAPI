@@ -8,9 +8,9 @@ use Swagger\Annotations as SWG;
  * @SWG\Resource(
  *  apiVersion="0.2",
  *  swaggerVersion="1.2",
- *  resourcePath="reservation",
+ *  resourcePath="Reservation Client",
  *  basePath="http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
- *  produces="['application/json']",
+ *  produces="['application/json']"
  * )
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -35,14 +35,12 @@ class reservation extends CI_Controller {
  * @SWG\Api(
  *   path="reservation",
  *   description="GET",
- *     consumes={"multipart/form-data"},
- *     produces={"text/plain, application/json"},
  *   @SWG\Operations(
  *     @SWG\Operation(
  *       method="GET",
- *       summary="get reservation",
+ *       summary="get reservation client",
  *       notes="Returns a string",
- *       nickname="helloWord",
+ *       nickname="ReservationClient",
  *       @SWG\Parameters(
  *         @SWG\Parameter(
  *           name="Client-Service",
@@ -54,7 +52,7 @@ class reservation extends CI_Controller {
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
- *           paramType="hedaer",
+ *           paramType="header",
  *           required=true,
  *           type="string"
  *         ),
@@ -97,8 +95,9 @@ class reservation extends CI_Controller {
 			if($check_auth_client == true){
 		        $response = $this->MyModel->auth();
 		        if($response['status'] == 200){
-		        	$resp = $this->MyModel->reservation_all_data();
-	    			return json_output($response['status'],$resp);
+					$resp = $this->MyModel->reservation_all_data();
+					echo $resp;
+	    			//return json_output(array($response['status'],$resp));
 		        }
 			}
 		}
@@ -106,42 +105,49 @@ class reservation extends CI_Controller {
 		/**
  *
  * @SWG\Api(
- *   path="reservation",
+ *   path="reservation/detail/{id}:",
  *   description="GET",
  *   @SWG\Operations(
  *     @SWG\Operation(
  *       method="GET",
- *       summary="get reservation",
+ *       summary="detail reservation client",
  *       notes="Returns a string",
- *       nickname="helloWord",
+ *       nickname="ReservationClient",
  *       @SWG\Parameters(
  *         @SWG\Parameter(
  *           name="Client-Service",
  *           description="Client Service",
- *           paramType="query",
- *           required=false,
+ *           paramType="header",
+ *           required=true,
  *           type="string"
  *         ),
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
- *           paramType="query",
- *           required=false,
+ *           paramType="header",
+ *           required=true,
  *           type="string"
  *         ),
  *         @SWG\Parameter(
  *           name="User-ID",
  *           description="user id or reference",
- *           paramType="query",
- *           required=false,
+ *           paramType="header",
+ *           required=true,
  *           type="string"
  *         ),
- *  *         @SWG\Parameter(
+ *           @SWG\Parameter(
  *           name="Authorization",
  *           description="authorization token",
- *           paramType="query",
- *           required=false,
+ *           paramType="header",
+ *           required=true,
  *           type="string"
+ *         ),
+ *		 @SWG\Parameter(
+ *           name="id",
+ *           description="reservation id",
+ *           paramType="path",
+ *           required=true,
+ *           type="integer"
  *         ),
  *       ),
  *       @SWG\ResponseMessages(
@@ -169,12 +175,111 @@ class reservation extends CI_Controller {
 			if($check_auth_client == true){
 		        $response = $this->MyModel->auth();
 		        if($response['status'] == 200){
-		        	$resp = $this->MyModel->reservation_detail_data($id);
-					json_output($response['status'],$resp);
+					$resp = $this->MyModel->reservation_detail_data($id);
+					echo $resp;
+					//json_output($response['status'],$resp);
 		        }
 			}
 		}
 	}
+/**
+ *
+ * @SWG\Api(
+ *   path="reservation/create",
+ *   description="POST",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="POST",
+ *       summary="create reservation client",
+ *       notes="Returns a string",
+ *       nickname="ReservationClient",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Client-Service",
+ *           description="Client Service",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="User-ID",
+ *           description="user id or reference",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *           @SWG\Parameter(
+ *           name="Authorization",
+ *           description="authorization token",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *		 @SWG\Parameter(
+ *           name="c_id",
+ *           description="User id",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ * 		 @SWG\Parameter(
+ *           name="date",
+ *           description="date to reserve",
+ *           paramType="query",
+ *           required=true,
+ *           type="string",
+ * 			 format="date"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="time",
+ *           description="Time to reserve",
+ *           paramType="query",
+ *           required=true,
+ *           type="time"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="quantity",
+ *           description="Number of person",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="tbnumber",
+ *           description="Table Number",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ *  		 @SWG\Parameter(
+ *           name="payment",
+ *           description="payment in euro",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Invalid username"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 
 	public function create()
 	{
@@ -191,18 +296,110 @@ class reservation extends CI_Controller {
 					//$params = json_decode(file_get_contents('php://input'), TRUE);
 					//$params=file_get_contents('php://input');
 					$params = $_REQUEST;
-					if ($params['date'] == "" || $params['time'] == ""|| $params['quantity'] == ""|| $params['tbnumber'] == "") {
+					if ($params['date'] == "" || $params['time'] == ""|| $params['quantity'] == ""|| $params['tbnumber'] == ""|| $params['payment'] == "") {
 						$respStatus = 400;
 						$resp = array('status' => 400,'message' =>  'date,time,quantity,tbnumber can\'t be empty');
 					} else {
 						
 		        		$resp = $this->MyModel->reservation_create_data($params);
 					}
-					json_output($respStatus,$resp);
+					echo $resp;
+					//json_output($respStatus,$resp);
 		        }
 			}
 		}
 	}
+			/**
+ *
+ * @SWG\Api(
+ *   path="reservation/update/{id}:",
+ *   description="PUT",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="PUT",
+ *       summary="update reservation client",
+ *       notes="Returns a string",
+ *       nickname="ReservationClient",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Client-Service",
+ *           description="Client Service",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="User-ID",
+ *           description="user id or reference",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *           @SWG\Parameter(
+ *           name="Authorization",
+ *           description="authorization token",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+* 		  @SWG\Parameter(
+*			name="c_id",
+ *           description="user id",
+ *           paramType="header",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ * 		 @SWG\Parameter(
+ *           name="date",
+ *           description="date to reserve",
+ *           paramType="query",
+ *           required=true,
+ *           type="string",
+ * 			 format="date"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="time",
+ *           description="Time to reserve",
+ *           paramType="query",
+ *           required=true,
+ *           type="time"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="quantity",
+ *           description="Number of person",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ * 		  @SWG\Parameter(
+ *           name="tbnumber",
+ *           description="Table Number",
+ *           paramType="query",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Invalid username"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
 
 	public function update($id)
 	{
@@ -224,11 +421,75 @@ class reservation extends CI_Controller {
 					} else {
 		        		$resp = $this->MyModel->reservation_update_data($id,$params);
 					}
-					json_output($respStatus,$resp);
+					echo $resp;
+					//json_output($respStatus,$resp);
 		        }
 			}
 		}
 	}
+				/**
+ *
+ * @SWG\Api(
+ *   path="reservation/delete/{id}:",
+ *   description="DELETE",
+ *   @SWG\Operations(
+ *     @SWG\Operation(
+ *       method="DELETE",
+ *       summary="delete reservation client",
+ *       notes="Returns a string",
+ *       nickname="ReservationClient",
+ *       @SWG\Parameters(
+ *         @SWG\Parameter(
+ *           name="Client-Service",
+ *           description="Client Service",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *        @SWG\Parameter(
+ *           name="Auth-Key",
+ *           description="Authentication Key",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *         @SWG\Parameter(
+ *           name="User-ID",
+ *           description="user id or reference",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *           @SWG\Parameter(
+ *           name="Authorization",
+ *           description="authorization token",
+ *           paramType="header",
+ *           required=true,
+ *           type="string"
+ *         ),
+ *   		  @SWG\Parameter(
+ * 			 name="id",
+ *           description="user id",
+ *           paramType="path",
+ *           required=true,
+ *           type="integer"
+ *         ),
+ *       ),
+ *       @SWG\ResponseMessages(
+ *          @SWG\ResponseMessage(
+ *            code=400,
+ *            message="Invalid username"
+ *          ),
+ *          @SWG\ResponseMessage(
+ *            code=404,
+ *            message="Not found"
+ *          )
+ *       )
+ *     )
+ *   )
+ * )
+ */
+
 
 	public function delete($id)
 	{
@@ -241,7 +502,8 @@ class reservation extends CI_Controller {
 		        $response = $this->MyModel->auth();
 		        if($response['status'] == 200){
 		        	$resp = $this->MyModel->reservation_delete_data($id);
-					json_output($response['status'],$resp);
+					//json_output($response['status'],$resp);
+					echo $resp;
 		        }
 			}
 		}

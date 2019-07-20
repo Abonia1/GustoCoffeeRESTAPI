@@ -2,7 +2,7 @@
     "basePath": "http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
     "swaggerVersion": "1.2",
     "apiVersion": "0.2",
-    "resourcePath": "Reservation",
+    "resourcePath": "Reservation Client",
     "apis": [
         {
             "path": "reservation",
@@ -10,7 +10,7 @@
             "operations": [
                 {
                     "method": "GET",
-                    "summary": "get reservation",
+                    "summary": "get reservation client",
                     "nickname": "ReservationClient",
                     "parameters": [
                         {
@@ -62,11 +62,11 @@
             "operations": [
                 {
                     "method": "POST",
-                    "summary": "create reservation ",
+                    "summary": "create reservation client",
                     "nickname": "ReservationClient",
                     "parameters": [
                         {
-                            "paramType": "query",
+                            "paramType": "header",
                             "name": "Client-Service",
                             "type": "string",
                             "required": true,
@@ -110,7 +110,7 @@
                         },
                         {
                             "paramType": "query",
-                            "name": "id",
+                            "name": "time",
                             "type": "time",
                             "required": true,
                             "description": "Time to reserve"
@@ -128,6 +128,13 @@
                             "type": "integer",
                             "required": true,
                             "description": "Table Number"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "payment",
+                            "type": "integer",
+                            "required": true,
+                            "description": "payment in euro"
                         }
                     ],
                     "responseMessages": [
@@ -145,16 +152,16 @@
             ]
         },
         {
-            "path": "reservation/delete",
+            "path": "reservation/delete/{id}:",
             "description": "DELETE",
             "operations": [
                 {
                     "method": "DELETE",
-                    "summary": "delete reservation ",
+                    "summary": "delete reservation client",
                     "nickname": "ReservationClient",
                     "parameters": [
                         {
-                            "paramType": "query",
+                            "paramType": "header",
                             "name": "Client-Service",
                             "type": "string",
                             "required": true,
@@ -180,6 +187,13 @@
                             "type": "string",
                             "required": true,
                             "description": "authorization token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user id"
                         }
                     ],
                     "responseMessages": [
@@ -197,12 +211,12 @@
             ]
         },
         {
-            "path": "reservation/detail",
+            "path": "reservation/detail/{id}:",
             "description": "GET",
             "operations": [
                 {
                     "method": "GET",
-                    "summary": "detail reservation",
+                    "summary": "detail reservation client",
                     "nickname": "ReservationClient",
                     "parameters": [
                         {
@@ -234,11 +248,11 @@
                             "description": "authorization token"
                         },
                         {
-                            "paramType": "header",
+                            "paramType": "path",
                             "name": "id",
                             "type": "integer",
                             "required": true,
-                            "description": "User id"
+                            "description": "reservation id"
                         }
                     ],
                     "responseMessages": [
@@ -256,16 +270,16 @@
             ]
         },
         {
-            "path": "reservation/update",
+            "path": "reservation/update/{id}:",
             "description": "PUT",
             "operations": [
                 {
                     "method": "PUT",
-                    "summary": "create reservation ",
+                    "summary": "update reservation client",
                     "nickname": "ReservationClient",
                     "parameters": [
                         {
-                            "paramType": "query",
+                            "paramType": "header",
                             "name": "Client-Service",
                             "type": "string",
                             "required": true,
@@ -293,11 +307,11 @@
                             "description": "authorization token"
                         },
                         {
-                            "paramType": "query",
+                            "paramType": "header",
                             "name": "c_id",
                             "type": "integer",
                             "required": true,
-                            "description": "User id"
+                            "description": "user id"
                         },
                         {
                             "paramType": "query",

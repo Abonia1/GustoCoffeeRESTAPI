@@ -1,14 +1,17 @@
 {
     "apiVersion": "0.2",
     "swaggerVersion": "1.2",
-    "apis": [
-        {
+    "apis": [{
             "path": "/Auth.{format}",
-            "description": "POST"
+            "description": "Auth Client,Admin"
         },
         {
-            "path": "/reservation.{format}",
-            "description": "GET"
+            "path": "/Reservation Admin.{format}",
+            "description": "Reservation create,detail,modify,update,delete"
+        },
+        {
+            "path": "/Reservation Client.{format}",
+            "description": "Reservation create,detail,modify,update,delete"
         }
     ]
 }
