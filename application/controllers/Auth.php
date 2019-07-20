@@ -10,7 +10,7 @@ use Swagger\Annotations as SWG;
  *  swaggerVersion="1.2",
  *  resourcePath="Auth",
  *  basePath="http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
- *  produces="['application/json']",
+ *  produces="['application/json']"
  * )
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -21,12 +21,10 @@ class Auth extends CI_Controller {
  * @SWG\Api(
  *   path="auth/login",
  *   description="POST",
- *     consumes={"application/x-www-form-urlencoded"},
- *     produces={"text/plain, application/json"},
  *   @SWG\Operations(
  *     @SWG\Operation(
  *       method="POST",
- *       summary="login Client",
+ *       summary="Login Client",
  *       notes="Returns a string",
  *       nickname="LoginClient",
  *       @SWG\Parameters(
@@ -34,29 +32,29 @@ class Auth extends CI_Controller {
  *           name="Client-Service",
  *           description="Client Service",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *         @SWG\Parameter(
  *           name="email",
  *           description="user name",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
- *  *         @SWG\Parameter(
+ *           @SWG\Parameter(
  *           name="mot_de_passe",
  *           description="password",
  *           paramType="query",
- *           required=false,
- *           type="string"
+ *           required=true,
+ *           type="password"
  *         ),
  *       ),
  *       @SWG\ResponseMessages(
@@ -67,6 +65,7 @@ class Auth extends CI_Controller {
  *          @SWG\ResponseMessage(
  *            code=404,
  *            message="Not found"
+ *          )
  *          )
  *       )
  *     )
@@ -90,10 +89,10 @@ class Auth extends CI_Controller {
 		        $username = $params['email'];
 		        $password = $params['mot_de_passe'];
 
-		        	
-		        $response = $this->MyModel->login($username,$password);
+				$response = $this->MyModel->login($username,$password);
+				//return $response;
 				echo $response;
-				return json_output($response['status'],$response);
+				//json_output($response);
 			}
 		}
 	}
@@ -113,28 +112,28 @@ class Auth extends CI_Controller {
  *           name="Client-Service",
  *           description="Client Service",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *         @SWG\Parameter(
  *           name="email",
  *           description="user name",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *  *         @SWG\Parameter(
  *           name="mot_de_passe",
  *           description="password",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *       ),
@@ -160,8 +159,9 @@ class Auth extends CI_Controller {
 		} else {
 			$check_auth_client = $this->MyModel->check_auth_client();
 			if($check_auth_client == true){
-		        $response = $this->MyModel->logout();
-				return json_output($response['status'],$response);
+				$response = $this->MyModel->logout();
+				echo $response;
+				//return json_output($response['status'],$response);
 			}
 		}
 	}
@@ -182,28 +182,28 @@ class Auth extends CI_Controller {
  *           name="Admin-Service",
  *           description="Admin Service",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *         @SWG\Parameter(
  *           name="identifiant",
  *           description="user name",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *  *         @SWG\Parameter(
  *           name="mot_de_passe",
  *           description="password",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *       ),
@@ -241,11 +241,11 @@ class Auth extends CI_Controller {
 		        	
 		        $response = $this->MyModelAdmin->loginAdmin($username,$password);
 				echo $response;
-				json_output($response['status'],$response);
+				//json_output($response['status'],$response);
 			}
 		}
 	}
-			/**
+/**
  *
  * @SWG\Api(
  *   path="auth/logoutadmin",
@@ -261,28 +261,28 @@ class Auth extends CI_Controller {
  *           name="Admin-Service",
  *           description="Admin Service",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *        @SWG\Parameter(
  *           name="Auth-Key",
  *           description="Authentication Key",
  *           paramType="header",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *         @SWG\Parameter(
  *           name="identifiant",
  *           description="user name",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *  *         @SWG\Parameter(
  *           name="mot_de_passe",
  *           description="password",
  *           paramType="query",
- *           required=false,
+ *           required=true,
  *           type="string"
  *         ),
  *       ),
@@ -309,8 +309,9 @@ class Auth extends CI_Controller {
 		} else {
 			$check_auth_admin = $this->MyModelAdmin->check_auth_admin();
 			if($check_auth_admin == true){
-		        $response = $this->MyModelAdmin->logoutAdmin();
-				json_output($response['status'],$response);
+				$response = $this->MyModelAdmin->logoutAdmin();
+				echo $response;
+				//json_output($response['status'],$response);
 			}
 		}
 	}

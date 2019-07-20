@@ -1,0 +1,364 @@
+{
+    "basePath": "http://aboweb.local:8080/GustoCoffeeRESTAPI/index.php/",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.2",
+    "resourcePath": "Reservation Admin",
+    "apis": [
+        {
+            "path": "reservationadmin",
+            "description": "GET",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "get reservation admin",
+                    "nickname": "ReservationAdmin",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Admin-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Admin Service"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Admin-ID",
+                            "type": "integer",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        },
+        {
+            "path": "reservationadmin/create",
+            "description": "POST",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "create reservation admin",
+                    "nickname": "ReservationAdmin",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Admin-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Admin Service"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Admin-ID",
+                            "type": "string",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "c_id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "User id"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "date",
+                            "type": "string",
+                            "required": true,
+                            "description": "date to reserve",
+                            "format": "date"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "time",
+                            "type": "time",
+                            "required": true,
+                            "description": "Time to reserve"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "quantity",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Number of person"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "tbnumber",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Table Number"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "payment",
+                            "type": "integer",
+                            "required": true,
+                            "description": "payment in euro"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        },
+        {
+            "path": "reservationadmin/delete/{id}:",
+            "description": "DELETE",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "summary": "delete reservation admin",
+                    "nickname": "ReservationAdmin",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Admin-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Admin Service"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Admin-ID",
+                            "type": "string",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Reservation ID"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        },
+        {
+            "path": "reservationadmin/detail/{id}:",
+            "description": "GET",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "detail reservation admin",
+                    "nickname": "ReservationAdmin",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Admin-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Admin Service"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Admin-ID",
+                            "type": "string",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Reservation ID"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        },
+        {
+            "path": "reservationadmin/update/{id}:",
+            "description": "PUT",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "summary": "update reservation admin",
+                    "nickname": "ReservationAdmin",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Admin-Service",
+                            "type": "string",
+                            "required": true,
+                            "description": "Admin Service"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Auth-Key",
+                            "type": "string",
+                            "required": true,
+                            "description": "Authentication Key"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Admin-ID",
+                            "type": "string",
+                            "required": true,
+                            "description": "user id or reference"
+                        },
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "authorization token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Reservation ID"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "date",
+                            "type": "string",
+                            "required": true,
+                            "description": "date to reserve",
+                            "format": "date"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "time",
+                            "type": "time",
+                            "required": true,
+                            "description": "Time to reserve"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "quantity",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Number of person"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "tbnumber",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Table Number"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid username"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Not found"
+                        }
+                    ],
+                    "notes": "Returns a string"
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json"
+    ]
+}
