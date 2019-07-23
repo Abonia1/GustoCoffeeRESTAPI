@@ -1,12 +1,16 @@
 <?php
-
-class ReservationAdminTest extends TestCase
+ require 'vendor/autoload.php';
+ use PHPUnit\Framework\TestCase;
+class ReservationAdminTest extends CI_Controller
 {
     
     public function __construct()
        {
              parent::__construct(); 
              $this->load->library("unit_test");
+            // $this->UnitTestCase('Welcome');
+             $this->_ci =& get_instance();
+             $this->url = 'http://aboweb.local:8080/GustoCoffeeRESTAPI/';
              
             	
        }
@@ -26,7 +30,8 @@ class ReservationAdminTest extends TestCase
         $test =$this->add(1,1);
         $expected_result = 2;
         $test_name = 'Adds one plus one';
-        echo $this->unit->run($test, $expected_result, $test_name);
+         $this->unit->run($test, $expected_result, $test_name);
+        echo $this->unit->report();
 
         
         // $test = $this->MyModel->reservation_detail_data(1);
@@ -42,6 +47,14 @@ class ReservationAdminTest extends TestCase
         // $this->$this->assertContains($expected_result, $test);
         //echo $this->unit->run($test,$expected_result,$test_name);
     }
+    // public function test_index(){
+    //     $test =$this->ci->index();
+    //     //$expected_result = 2;
+    //     $test_name = 'Homepage Test';
+    //     echo $this->unit->run($test, 'is_string', $test_name);
+
+    // }
+    
     
 } 
 // {

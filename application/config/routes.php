@@ -55,11 +55,15 @@ $route['auth/login']['post']           = 'auth/login';
 $route['auth/logout']['post']          = 'auth/logout';
 $route['docs']['get']        	       = 'docs';
 $route['reservation']['get']          	       = 'reservation';
-$route['reservationadmintest/test_detail']          	       = 'reservationadmintest/test_detail';
 $route['reservation/detail/(:num)']['get']    = 'reservation/detail/$1';
 $route['reservation/create']['post']   	   = 'reservation/create';
 $route['reservation/update/(:num)']['put']    = 'reservation/update/$1';
 $route['reservation/delete/(:num)']['delete'] = 'reservation/delete/$1';
+
+
+//unit test
+$route['unit_test']          	       = 'reservationadmintest/test_detail';
+$route['unit_test/home']          	       = 'reservationadmintest/test_index';
 
 //admin
 $route['auth/loginadmin']['post']           = 'auth/loginadmin';

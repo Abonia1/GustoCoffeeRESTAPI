@@ -4,8 +4,9 @@ class Welcome_test extends \PHPUnit\Framework\TestCase
 {
 	public function test_index()
 	{
-		$output = $this->request('GET', 'welcome/index');
-		$this->assertContains('<title>Welcome to CodeIgniter</title>', $output);
+		$output = $this->request('GET', ['welcome','index']);
+		echo $this->assertContains('<title>Welcome to CodeIgniter</title>', $output);
+
 	}
 
 	public function test_method_404()
