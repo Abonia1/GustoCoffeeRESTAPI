@@ -23,3 +23,23 @@ List of the API Routes:
 `[DELETE]` `/reservation/delete/:id`
 
 `[POST]` `/auth/logout`
+
+
+Add reservationadmin in the place of reservation for to test reservation in admin side.
+
+### Access swagger documentation:
+Download swagger-editor or install it via composer
+Access api documentation with following link:http://localhost/gustocoffeerestapi/docs
+
+### Access unit test with  unit_test library:
+http://localhost/gustocoffeerestapi/index.php/unit_test
+
+Using phpunit test:
+
+Install phpunit test
+Refer to project in github:https://github.com/kenjis/ci-phpunit-test
+Test it in terminal 
+
+Github repo:https://github.com/Abonia1/GustoCoffeeRESTAPI
+
+
