@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 use Swagger\Annotations as SWG;
 /**
  * @package
@@ -33,6 +36,10 @@ class service extends CI_Controller {
 		} else {
 					$resp = $this->MyModel->service_all_data();
 					echo $resp;
+					header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
+    header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+					
 	    			//return json_output(array($response['status'],$resp));
 		        }
 

@@ -101,7 +101,8 @@ class MyModelAdmin extends CI_Model {
     
     public function reservation_all_data()
     {
-       $response= $this->db->select('reservation_id,date,time,c_id')->from('reservation')->order_by('reservation_id','desc')->get()->result();
+       $response= $this->db->select('reservation_id,date,time,c_id')->from('reservation')->order_by('reservation_id','asc')->get()->result();
+       
        return json_output(200,array('response'=>$response));
   
     }
