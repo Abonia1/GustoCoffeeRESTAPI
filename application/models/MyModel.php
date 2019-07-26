@@ -138,5 +138,18 @@ class MyModel extends CI_Model {
         $response=$this->db->where('reservation_id',$id)->delete('reservation');
         return json_output(200,array('status' => 200,'message' => 'Data has been deleted.','response'=>$response));
     }
+    //get all service
+    public function service_all_data()
+    {
+       $response= $this->db->select('*')->from('services')->order_by('service_id','desc')->get()->result();
+       return json_output(200,array('response'=>$response));
+  
+    }
 
+    public function service_type_data($id)
+    {
+       $response= $this->db->select('*')->where('service_type_id',$id)->from('services')->order_by('service_type_id','desc')->get()->result();
+       return json_output(200,array('response'=>$response));
+  
+    }
 }
