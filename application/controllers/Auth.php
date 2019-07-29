@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,Client-Service,Auth-Key');
+header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT');
+header('Access-Control-Allow-Headers: Content-Type, Accept, Client-Service, Auth-Key');
 use Swagger\Annotations as SWG;
 /**
  * @package
