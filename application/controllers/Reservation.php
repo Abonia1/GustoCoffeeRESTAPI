@@ -2,7 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+header('Access-Control-Allow-Headers: User-ID,Authorization, Origin, X-Requested-With, Content-Type, Accept');
 use Swagger\Annotations as SWG;
 /**
  * @package
@@ -23,12 +23,15 @@ class reservation extends CI_Controller {
 
 	public function __construct()
     {
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE');
+		header('Access-Control-Allow-Headers: User-ID,Authorization, Origin, X-Requested-With, Content-Type, Accept');
         parent::__construct();
 		$this->load->model('MyModel');
-        $check_auth_client = $this->MyModel->check_auth_client();
-		if($check_auth_client != true){
-			die($this->output->get_output());
-		}
+        // $check_auth_client = $this->MyModel->check_auth_client();
+		// if($check_auth_client != true){
+		// 	die($this->output->get_output());
+		// }
 		
 	}
 	//admin
@@ -95,15 +98,15 @@ class reservation extends CI_Controller {
 		if($method != 'GET'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
-			if($check_auth_client == true){
+			//$check_auth_client = $this->MyModel->check_auth_client();
+			//if($check_auth_client == true){
 		        $response = $this->MyModel->auth();
 		        if($response['status'] == 200){
 					$resp = $this->MyModel->reservation_all_data();
 					echo $resp;
 	    			//return json_output(array($response['status'],$resp));
 		        }
-			}
+			//}
 		}
 	}
 		/**

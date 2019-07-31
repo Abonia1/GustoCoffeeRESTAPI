@@ -1,7 +1,9 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT');
-header('Access-Control-Allow-Headers: Content-Type, Accept, Client-Service, Auth-Key');
+header('Access-Control-Allow-Headers:  User-ID,Authorization, Content-Type, Accept, Client-Service, Auth-Key');
+header('Access-Control-Allow-Headers: Content-Type, Accept, Client-Service, Auth-Key,');
+header('Access-Control-Allow-Credentials: true');
 use Swagger\Annotations as SWG;
 /**
  * @package
@@ -19,6 +21,19 @@ use Swagger\Annotations as SWG;
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
+	
+	public function __construct()
+    {
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE');
+		header('Access-Control-Allow-Headers:  User-ID,Authorization, Content-Type, Accept, Client-Service, Auth-Key');
+		header('Access-Control-Allow-Headers: Content-Type, Accept, Client-Service, Auth-Key,');
+		header('Access-Control-Allow-Credentials: true');
+        parent::__construct();
+		$this->load->model('MyModel');
+
+		
+	}
 		/**
  *
  * @SWG\Api(
@@ -84,9 +99,9 @@ class Auth extends CI_Controller {
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
 
-			$check_auth_client = $this->MyModel->check_auth_client();
+			//$check_auth_client = $this->MyModel->check_auth_client();
 			
-			if($check_auth_client == true){
+			//if($check_auth_client == true){
 				$params = $_REQUEST;
 		        
 		        $username = $params['email'];
@@ -96,7 +111,7 @@ class Auth extends CI_Controller {
 				//return $response;
 				echo $response;
 				//json_output($response);
-			}
+			//}
 		}
 	}
 		/**

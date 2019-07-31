@@ -1,10 +1,21 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT');
-header('Access-Control-Allow-Headers:  Content-Type, Accept, Client-Service, Auth-Key');
+header('Access-Control-Allow-Headers:  User-ID,Authorization, Content-Type, Accept, Client-Service, Auth-Key');
+header('Access-Control-Allow-Credentials: true');
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MyModel extends CI_Model {
+    public function __construct()
+    {
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE');
+		header('Access-Control-Allow-Headers: User-ID,Authorization, Origin, X-Requested-With, Content-Type, Accept,Client-Service, Auth-Key');
+        parent::__construct();
+        
+
+	}
      /**
  * @SWG\Model(id="reservation", required="Client-Service, Auth-Key,User-ID, Authorization",
  *     @SWG\Property(name="Client-Service",type="String"),
@@ -105,7 +116,7 @@ class MyModel extends CI_Model {
     public function reservation_all_data()
     {
         $client_id  = $this->input->get_request_header('User-ID', TRUE);
-         $response=$this->db->select('reservation_id,date,time,status,tbnumber,c_id')->from('reservation')->where('c_id',$client_id )->order_by('c_id','desc')->get()->result();
+         $response=$this->db->select('reservation_id,date,time,quantity,duree,payment,c_status,status,tbnumber,c_id')->from('reservation')->where('c_id',$client_id )->order_by('c_id','desc')->get()->result();
          return json_output(200,array('response'=>$response));
 
     }
